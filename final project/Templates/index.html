@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1"
+        />
+    <style>
+    body{background-color: #f3f2b7;}
+    #container{width:100%;height:1000px;float:left;}
+    #left-container{width:20%;height:100%;float:left;}
+    table{width:100%;text-align: center;}
+    ul{list-style-type:none;}
+    .mar_img{width:100px;height:100px;border:2px ridge;}
+    li{float:left;padding-left:100px;}
+    tr{height:60px}
+    #left-header{width:100%;height:20%;float:left;justify-content: center;align-items: center;display: flex;}
+    #left-table{width:100%;height:80%;float:left;}
+    #right-container{width:80%;height:100%;float:left;float:left;}
+    #right-header{width:100%;height:20%;float:left;}
+    #right-context{width:100%;height:80%;float:left;}</style>
+  </head>
+  <body>
+    <div id='container'>
+      <div id='left-container'>
+        <div id='left-header'><img src="../web/Cryptocurrency school.png" width="357" height="113" /></div>
+        <div id='left-table'>
+            <table>
+                <tr><td><a href="classic.html" target="_self"><img onmouseover="bigImg(this)" onmouseout="normalImg(this)" onclick="normalImg(this)" border="0" src="../web/classic.png" width='146' height="43"></a></td></tr>
+                <tr><td><a href="Encryption.html" target="_self"><img onmouseover="bigImg(this)" onmouseout="normalImg(this)" onclick="normalImg(this)" border="0" src="../web/Encryption.png" width='162' height="43"></a></td></tr>
+                <tr><td><a href="index.html" target="_self"><img  onmouseover="bigImg(this)" onmouseout="normalImg(this)" onclick="normalImg(this)" border="0" src="../web/index.png" width='130' height="43"></a></td></tr>
+
+            </table></div>
+      </div>
+      <div id='right-container'>
+        <div id='right-header'><marquee direction="left" behavior="slice">
+          <ul>
+            
+            <li><img class="mar_img" src="../web/series_encryption.png"></br><a href='https://yd.qq.com/web/bookDetail/fd632c50724d046efd6478b'>严肃的密码学</a></li> 
+            <li><img class="mar_img" src="../web/Introduction to Modern Cryptography.png"></br><a href='https://www.abebooks.co.uk/9781584885511/Introduction-Modern-Cryptography-Principles-Protocols-1584885513/plp'>Introduction to </br>Modern </br>Cryptography</a></li>
+            <li><img class="mar_img" src="../web/HANDBOOK OF APPLIED CRYPTOGRAPHY.png"></br><a href='https://www.madrasshoppe.com/handbook-of-applied-cryptography-hb-2018-special-indian-edition-menezes-aj-9781138385979-93076.html'>Hanbook of </br>Appiled </br>Cryptography</a></li>
+            <li><img class="mar_img" src="../web/Introduction to Mathematical Cryptograph.png"></br><a href='https://www.books.com.tw/products/F013366788?loc=M_0007_086'>Introduction to </br>Mathematical </br>Cryptograph</a></li>
+            <li><img class="mar_img" src="../web/encryption_theory.png"></br><a href='http://www.rumen.icu/domain/get/130'>密码学概论</a></li>
+            <li><img class="mar_img" src="../web/Python_encryption.png"></br><a href='https://www.book123.info/detail/9787115424297'>Python密码学编程</a></li>
+          </ul>
+          </marquee></div>
+        <div id='right-context'>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/2aHkqB2-46k?si=XOh4ArxRCNaX2XPZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        
+        </div>
+      </div>
+</div>
+<script>
+    function bigImg(x) {
+      var a =x.clientWidth;
+      var b =x.clientHeight;
+      x.style.width = a*1.2;
+      x.style.height = b*1.2;
+      
+    }function normalImg(x) {
+      var a =x.clientWidth;
+      var b =x.clientHeight;
+      x.style.height = b/1.2;
+      x.style.width = a/1.2;
+    }
+    
+    </script>
+  </body>
+</html>

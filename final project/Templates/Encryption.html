@@ -1,0 +1,287 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1"
+        />
+    <style>
+    body{background-color: #f3f2b7;}
+    #container{width:100%;height:1000px;float:left;}
+    #left-container{width:20%;height:100%;float:left;}
+    table{width:100%;text-align: center;}
+    ul{list-style-type:none;}
+    .mar_img{width:100px;height:100px;border:2px #cc0066 ridge;}
+    li{float:left;padding-left:100px;}
+    tr{height:60px}
+    #left-header{width:100%;height:20%;float:left;justify-content: center;align-items: center;display: flex;}
+    #left-table{width:100%;height:80%;float:left;}
+    #right-container{width:80%;height:100%;float:left;float:left;}
+    #right-header{width:100%;height:20%;float:left;}
+    #right-context{width:100%;height:80%;float:left;}</style>
+  </head>
+  <body>
+    <div id='container'>
+      <div id='left-container'>
+        <div id='left-header'><img src="../web/Cryptocurrency school.png" width="357" height="113" /></div>
+        <div id='left-table'>
+            <table>
+                <tr><td><a href="classic.html" target="_self"><img onmouseover="bigImg(this)" onmouseout="normalImg(this)" onclick="normalImg(this)" border="0" src="../web/classic.png" width='146' height="43"></a></td></tr>
+                <tr><td><a href="Encryption.html" target="_self"><img onmouseover="bigImg(this)" onmouseout="normalImg(this)" onclick="normalImg(this)" border="0" src="../web/Encryption.png" width='162' height="43"></a></td></tr>
+                <tr><td><a href="index.html" target="_self"><img  onmouseover="bigImg(this)" onmouseout="normalImg(this)" onclick="normalImg(this)" border="0" src="../web/index.png" width='130' height="43"></a></td></tr>
+
+            </table></div>
+      </div>
+      <div id='right-container'>
+        <div id='right-header'><marquee direction="left" behavior="slice">
+          <ul>
+            
+            <li><img class="mar_img" src="../web/series_encryption.png"></br><a href='https://yd.qq.com/web/bookDetail/fd632c50724d046efd6478b'>严肃的密码学</a></li> 
+            <li><img class="mar_img" src="../web/Introduction to Modern Cryptography.png"></br><a href='https://www.abebooks.co.uk/9781584885511/Introduction-Modern-Cryptography-Principles-Protocols-1584885513/plp'>Introduction to </br>Modern </br>Cryptography</a></li>
+            <li><img class="mar_img" src="../web/HANDBOOK OF APPLIED CRYPTOGRAPHY.png"></br><a href='https://www.madrasshoppe.com/handbook-of-applied-cryptography-hb-2018-special-indian-edition-menezes-aj-9781138385979-93076.html'>Hanbook of </br>Appiled </br>Cryptography</a></li>
+            <li><img class="mar_img" src="../web/Introduction to Mathematical Cryptograph.png"></br><a href='https://www.books.com.tw/products/F013366788?loc=M_0007_086'>Introduction to </br>Mathematical </br>Cryptograph</a></li>
+            <li><img class="mar_img" src="../web/encryption_theory.png"></br><a href='http://www.rumen.icu/domain/get/130'>密码学概论</a></li>
+            <li><img class="mar_img" src="../web/Python_encryption.png"></br><a href='https://www.book123.info/detail/9787115424297'>Python密码学编程</a></li>
+          </ul>
+          </marquee></div>
+        <div id='right-context'>
+          <img src="../web/X.png"></br>
+        <form>
+          <h3>加密：</h3>
+          <textarea id="plaintext"rows='4' cols="50"></textarea>
+          <button id="encrypt_button" onclick="Encrypt()">加密</button>
+          <textarea id="ciphertext"rows='4' cols="50"></textarea><button onclick="copy_encrypt()">复制密文</button></br>
+          <input type="radio" name="encrypt" value="Encrypt1"/>算法一<input type="radio" name="encrypt" value="Encrypt2"/>算法二<input type="radio" name="encrypt" value="Encrypt3"/>算法三</br>
+          <h3>解密：</h3>
+          <textarea id="ciphertext4"rows='4' cols="50"></textarea>
+          <button id="decrypt_button" onclick="Decrypt()">解密</button>
+          <textarea id="plaintext4"rows='4' cols="50"></textarea><button onclick="copy_decrypt()">复制明文</button>
+
+        </form>
+        </div>
+      </div>
+</div>
+<script>
+const btn=document.querySelector('#encrypt_button');
+const radiobuttons=document.querySelectorAll('input[name="encrypt"]');
+btn.addEventListener('click',() =>{
+  let selected;
+  for(const radiobutton of radiobuttons){
+    if(radiobutton.checked){
+      selected=radiobutton.value;
+      break;
+
+    }
+  }
+if(selected=='Encrypt1'){
+  Encrypt1()
+}
+else if(selected=='Encrypt2'){
+  Encrypt2()
+}
+else if(selected=='Encrypt3'){
+  Encrypt3()
+}
+event.preventDefault();
+}
+)
+
+</script>
+<script>
+  function copy_encrypt() {
+  const element = document.querySelector('#ciphertext');
+  element.select();
+  element.setSelectionRange(0, 99999);
+  document.execCommand('copy');
+  event.preventDefault();
+}
+function copy_decrypt() {
+  const element = document.querySelector('#plaintext4');
+  element.select();
+  element.setSelectionRange(0, 99999);
+  document.execCommand('copy');
+  event.preventDefault();
+}
+    function bigImg(x) {
+      var a =x.clientWidth;
+      var b =x.clientHeight;
+      x.style.width = a*1.2;
+      x.style.height = b*1.2;
+      
+    }function normalImg(x) {
+      var a =x.clientWidth;
+      var b =x.clientHeight;
+      x.style.height = b/1.2;
+      x.style.width = a/1.2;
+    }
+    function inverse(obj){ 
+      var retobj = {}; 
+      for(var key in obj){ 
+      retobj[obj[key]] = key; 
+     } 
+     return retobj; 
+     }
+
+    function Encrypt1(){
+      var x=document.getElementById('plaintext').value;
+      var dict={'0':1n,'1':2n,'2':3n,'3':4n,'4':5n,'5':6n,'6':7n,'7':8n,'8':9n,'9':10n,'a':11n,'b':12n,'c':13n,'d':14n,'e':15n,'f':16n,'g':17n,'h':18n,'i':19n,'j':20n,'k':21n,'l':22n,'m':23n,'n':24n,'o':25n,'p':26n,'q':27n,'r':28n,'s':29n,'t':30n,'u':31n,'v':32n,'w':33n,'x':34n,'y':35n,'z':36n,'A':37n,'B':38n,'C':39n,'D':40n,'E':41n,'F':42n,'G':43n,'H':44n,'I':45n,'J':46n,'K':47n,'L':48n,'M':49n,'N':50n,'O':51n,'P':52n,'Q':53n,'R':54n,'S':55n,'T':56n,'U':57n,'V':58n,'W':59n,'X':60n,'Y':61n,'Z':62n,'!':63n,'@':64n,'#':65n,'$':66n,'%':67n,'^':68n,'&':69n,'*':70n,'(':71n,')':72n,'-':73n,'+':74n,'=':75n,'[':76n,']':77n,'{':78n,'}':79n,':':80n,';':81n,"'":82n,'"':83n,'<':84n,',':85n,'>':86n,'.':87n,'?':88n,'/':89n,' ':90n};
+      var j=BigInt(x.length)-1n;
+      var a=0n;
+      for(i=0;i<x.length;i++){
+        a+=dict[x[i]]*91n**j
+        j-=1n
+      }
+      a=a*1000n+BigInt(Math.floor(Math.random() * 333+1)*3);
+      document.getElementById('ciphertext').value=a
+      event.preventDefault();
+    }
+    
+    function Encrypt2(){
+      var x=document.getElementById('plaintext').value;
+      var dict={'0':1n,'1':2n,'2':3n,'3':4n,'4':5n,'5':6n,'6':7n,'7':8n,'8':9n,'9':10n,'a':11n,'b':12n,'c':13n,'d':14n,'e':15n,'f':16n,'g':17n,'h':18n,'i':19n,'j':20n,'k':21n,'l':22n,'m':23n,'n':24n,'o':25n,'p':26n,'q':27n,'r':28n,'s':29n,'t':30n,'u':31n,'v':32n,'w':33n,'x':34n,'y':35n,'z':36n,'A':37n,'B':38n,'C':39n,'D':40n,'E':41n,'F':42n,'G':43n,'H':44n,'I':45n,'J':46n,'K':47n,'L':48n,'M':49n,'N':50n,'O':51n,'P':52n,'Q':53n,'R':54n,'S':55n,'T':56n,'U':57n,'V':58n,'W':59n,'X':60n,'Y':61n,'Z':62n,'!':63n,'@':64n,'#':65n,'$':66n,'%':67n,'^':68n,'&':69n,'*':70n,'(':71n,')':72n,'-':73n,'+':74n,'=':75n,'[':76n,']':77n,'{':78n,'}':79n,':':80n,';':81n,"'":82n,'"':83n,'<':84n,',':85n,'>':86n,'.':87n,'?':88n,'/':89n,' ':90n};
+      var j=BigInt(x.length)-1n;
+      var a=0n;
+      for(i=0;i<x.length;i++){
+        a+=dict[x[i]]*91n**j
+        j-=1n
+      }
+      var b=BigInt(Math.floor(Math.random() * 900+100));
+      a=a*b;
+      a=a+b*10n**BigInt(String(a).length)
+      a=a*1000n+BigInt(Math.floor(Math.random() * 333)*3+1);
+      document.getElementById('ciphertext').value=a
+      event.preventDefault();
+    
+    }
+    function Encrypt3(){
+      var x=document.getElementById('plaintext').value;
+      var dict1={'0':1n,'1':2n,'2':3n,'3':4n,'4':5n,'5':6n,'6':7n,'7':8n,'8':9n,'9':10n,'a':11n,'b':12n,'c':13n,'d':14n,'e':15n,'f':16n,'g':17n,'h':18n,'i':19n,'j':20n,'k':21n,'l':22n,'m':23n,'n':24n,'o':25n,'p':26n,'q':27n,'r':28n,'s':29n,'t':30n,'u':31n,'v':32n,'w':33n,'x':34n,'y':35n,'z':36n,'A':37n,'B':38n,'C':39n,'D':40n,'E':41n,'F':42n,'G':43n,'H':44n,'I':45n,'J':46n,'K':47n,'L':48n,'M':49n,'N':50n,'O':51n,'P':52n,'Q':53n,'R':54n,'S':55n,'T':56n,'U':57n,'V':58n,'W':59n,'X':60n,'Y':61n,'Z':62n,'!':63n,'@':64n,'#':65n,'$':66n,'%':67n,'^':68n,'&':69n,'*':70n,'(':71n,')':72n,'-':73n,'+':74n,'=':75n,'[':76n,']':77n,'{':78n,'}':79n,':':80n,';':81n,"'":82n,'"':83n,'<':84n,',':85n,'>':86n,'.':87n,'?':88n,'/':89n,' ':90n};
+      var dict2={'_':0n,'@':1n,'!':2n,'#':3n,'%':4n,'$':5n,'&':6n,'*':7n,';':8n,':':9n,'?':10n,'/':11n,'+':12n,'x':13n,'3':14n,'2':15n,'1':16n,'0':17n,'4':18n,'6':19n,'7':20n,'5':21n,'9':22n,'8':23n}
+      dict2=inverse(dict2)
+      var j=BigInt(x.length)-1n;
+      var a=0n;
+      for(i=0;i<x.length;i++){
+        a+=dict1[x[i]]*91n**j
+        j-=1n
+      }
+      var b=BigInt(Math.floor(Math.random() * 900+100));
+      a=a*b;
+      a=a+b*10n**BigInt(String(a).length+1)
+      i=0n
+        c=''
+        while (24n**(i+1n)<a){
+          i+=1n
+        }
+        while(a>0n){
+        j=0n;
+          while((j+1n)*24n**i<=a){
+            j+=1n
+          }
+          c+=dict2[j];
+          a-=BigInt(j)*24n**i;
+          i-=1n
+          
+
+        }
+        c+=String(Math.floor(Math.random() * 233+100)*3+2)
+      document.getElementById('ciphertext').value=c
+      event.preventDefault();
+    }
+    function Encrypt(){
+
+    }
+    function Decrypt(){
+      var x=String(document.getElementById('ciphertext4').value);
+      var dict={'0':1n,'1':2n,'2':3n,'3':4n,'4':5n,'5':6n,'6':7n,'7':8n,'8':9n,'9':10n,'a':11n,'b':12n,'c':13n,'d':14n,'e':15n,'f':16n,'g':17n,'h':18n,'i':19n,'j':20n,'k':21n,'l':22n,'m':23n,'n':24n,'o':25n,'p':26n,'q':27n,'r':28n,'s':29n,'t':30n,'u':31n,'v':32n,'w':33n,'x':34n,'y':35n,'z':36n,'A':37n,'B':38n,'C':39n,'D':40n,'E':41n,'F':42n,'G':43n,'H':44n,'I':45n,'J':46n,'K':47n,'L':48n,'M':49n,'N':50n,'O':51n,'P':52n,'Q':53n,'R':54n,'S':55n,'T':56n,'U':57n,'V':58n,'W':59n,'X':60n,'Y':61n,'Z':62n,'!':63n,'@':64n,'#':65n,'$':66n,'%':67n,'^':68n,'&':69n,'*':70n,'(':71n,')':72n,'-':73n,'+':74n,'=':75n,'[':76n,']':77n,'{':78n,'}':79n,':':80n,';':81n,"'":82n,'"':83n,'<':84n,',':85n,'>':86n,'.':87n,'?':88n,'/':89n,' ':90n};
+      
+      var y=x.slice(x.length-3)
+      
+     dict=inverse(dict);
+     if(Number(y)%3==2){
+      var dict2={'_':0n,'@':1n,'!':2n,'#':3n,'%':4n,'$':5n,'&':6n,'*':7n,';':8n,':':9n,'?':10n,'/':11n,'+':12n,'x':13n,'3':14n,'2':15n,'1':16n,'0':17n,'4':18n,'6':19n,'7':20n,'5':21n,'9':22n,'8':23n}
+      x=x.slice(0,x.length-3);
+      var j=BigInt(x.length)-1n;
+      var a=0n;
+      for(i=0;i<x.length;i++){
+        a+=dict2[x[i]]*24n**j
+        j-=1n
+        
+      }
+        a=BigInt(a)
+        b=a/(10n**BigInt(String(a).length-3))
+        a=a%(10n**BigInt(String(a).length-3))/b
+        i=0n
+        c=''
+        while (91n**(i+1n)<a){
+          i+=1n
+        }
+        while(a>0n){
+        j=0n;
+          while((j+1n)*91n**i<=a){
+            j+=1n
+          }
+          c+=dict[j];
+          a-=BigInt(j)*91n**i;
+          i-=1n
+          
+
+        }
+      
+      document.getElementById('plaintext4').value=c
+      event.preventDefault();
+     }
+     
+      
+    else if(Number(y)%3==0){
+      x=BigInt(x.slice(0,x.length-3))
+        i=0n
+        a=''
+        while (91n**(i+1n)<x){
+          i+=1n
+        }
+        while(x>0n){
+        j=0n;
+          while((j+1n)*91n**i<=x){
+            j+=1n
+          }
+          a+=dict[j];
+          x-=BigInt(j)*91n**i;
+          i-=1n
+          
+
+        }
+        document.getElementById('plaintext4').value=a
+        event.preventDefault();
+      }
+     else if(Number(y)%3==1){
+      x=BigInt(x.slice(0,x.length-3))
+        b=x/(10n**BigInt(String(x).length-3))
+        x=x%(10n**BigInt(String(x).length-3))/b
+        i=0n
+        a=''
+        while (91n**(i+1n)<x){
+          i+=1n
+        }
+        while(x>0n){
+        j=0n;
+          while((j+1n)*91n**i<=x){
+            j+=1n
+          }
+          a+=dict[j];
+          x-=BigInt(j)*91n**i;
+          i-=1n
+          
+
+        }
+        document.getElementById('plaintext4').value=a
+        event.preventDefault();
+
+
+      }
+      
+    
+    
+    }
+    </script>
+  </body>
+</html>
